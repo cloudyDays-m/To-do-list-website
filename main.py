@@ -1,21 +1,27 @@
 import streamlit as st 
+
 st.set_page_config(page_title="To-Do list :D ", layout="centered")
 
 st.markdown("""
     <style>
         .stApp {
-            background: linear-gradient(135deg, #FFD5CD 0%, #F5F0D4 20%, #D4F0D1 40%, #D1EEF0 60%, #F5D4E8 80%, #FFD5CD 100%);
+            background: url('https://images.unsplash.com/photo-1743096108784-8a76e56324b4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=684') no-repeat center center fixed !important;
+            background-size: cover !important;
         }
         
-        .main-container {
+        [data-testid="stAppViewContainer"] {
+            background: url('https://images.unsplash.com/photo-1743096108784-8a76e56324b4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=684') no-repeat center center fixed !important;
+            background-size: cover !important;
+        }
+        
+        .block-container {
             background-color: white;
             padding: 2rem;
             border-radius: 2rem;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             max-width: 600px;
-            margin: 3rem auto;
+            margin: 5rem auto;
         }
-
 
         h1 {
             color: #F5A9B8;
@@ -39,7 +45,7 @@ st.markdown("""
 
         .stButton > button {
             border-radius: 2rem;
-            background: linear-gradient(135deg, #FFD5CD, #F5A9B8);
+            background: linear-gradient(135deg, #d9ead3, #b8d8be);
             color: white; 
             border: none;
             padding: 0.5rem 2rem;
@@ -66,7 +72,6 @@ if 'todos' not in st.session_state:
     st.session_state.todos = []
 
 st.markdown("<h1> To-Do List </h1>", unsafe_allow_html=True)
-st.markdown("<div class='main-container'>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'> let's get these things over with! </p>", unsafe_allow_html=True)
 
 col1, col2 = st.columns([4, 1])
@@ -79,7 +84,6 @@ with col2:
             st.rerun()
 
 st.markdown("<br>", unsafe_allow_html=True)
-st.markdown("</div", unsafe_allow_html=True)
 
 
 if not st.session_state.todos:
